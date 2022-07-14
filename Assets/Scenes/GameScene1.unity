@@ -202,6 +202,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
   m_PrefabInstance: {fileID: 3786868}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3786870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3786869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d0175f0dfec824ba7162f4d58e4d09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HoldPoint: {fileID: 1807910059}
+  m_Hand: {fileID: 1428155924}
+  m_StartWeapon: {fileID: 3007198871195097770, guid: 23f485b0fcb0cff41a7fe1af6502688a, type: 3}
+  m_UsingWeapon: {fileID: 0}
+  m_HandState: 0
 --- !u!1 &23583594
 GameObject:
   m_ObjectHideFlags: 0
@@ -9681,8 +9698,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313396846}
-  m_LocalRotation: {x: 0.3032155, y: 0.63836354, z: -0.3026867, w: 0.63947886}
-  m_LocalPosition: {x: -1216.12, y: 43.48, z: 43.82}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1194.93, y: 23.3, z: 52.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10240,7 +10257,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.334, y: 0, z: 0.542}
   m_LocalScale: {x: 0.22743, y: 0.19051, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1807910059}
   m_Father: {fileID: 3622983}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12864,6 +12882,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4607489187838822, guid: 00e2e59cbc04eab4a982218df54ce70b, type: 3}
   m_PrefabInstance: {fileID: 1773171823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1807910058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1807910059}
+  m_Layer: 0
+  m_Name: WeaponHold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1807910059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807910058}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.061256792, y: -0.052481867, z: 0.70299894}
+  m_LocalScale: {x: 2.1397793, y: 2.5544589, z: 0.48665}
+  m_Children: []
+  m_Father: {fileID: 1428155924}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1808370719
 PrefabInstance:
   m_ObjectHideFlags: 0

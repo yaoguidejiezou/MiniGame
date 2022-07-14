@@ -30,7 +30,6 @@ public class MonsterController : MonoBehaviour
     void Update()
     {
         transform.Translate(m_Direction * m_Speed, Space.Self);
-        //Debug.Log(m_Children[m_NowTargetIndex].name);
         if (Vector3.Magnitude(m_Children[m_NowTargetIndex].transform.position - transform.position) <= 0.3)
         {
             m_NowTargetIndex++;
