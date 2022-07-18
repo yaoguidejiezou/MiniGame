@@ -57,9 +57,13 @@
      <Compile Include="Assets\Scripts\MonsterController.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Weapon.cs" />
-     <Compile Include="Assets\Scripts\temp.cs" />
+     <Compile Include="Assets\Scripts\MonsterSpawner.cs" />
      <Compile Include="Assets\Scripts\BoxColliderGizmo.cs" />
+     <Compile Include="Assets\Scripts\UI\BatterySlotCheck.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
+     <Compile Include="Assets\Scripts\BatteryController.cs" />
+     <Compile Include="Assets\Scripts\BatteryManager.cs" />
+     <Compile Include="Assets\Scripts\Projectile.cs" />
  <Reference Include="UnityEngine">
  <HintPath>D:/unity/WindowsEditor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -30,18 +30,24 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(m_Direction * m_Speed, Space.Self);
-        if (m_NowTargetIndex != m_Children.Length - 1 && Vector3.Magnitude(m_Children[m_NowTargetIndex].transform.position - transform.position) <= 0.3)
-        {
-            m_NowTargetIndex++;
-            
-            m_Direction = (m_Children[m_NowTargetIndex].transform.position - transform.position).normalized;
-            if (m_NowTargetIndex == m_Children.Length - 1)
-            {
-                m_Direction = Vector3.zero;
-                //Destroy(gameObject);
-            }
-        }
+         transform.Translate(m_Direction * m_Speed, Space.Self);
+         
+         if(m_NowTargetIndex <= m_Children.Length - 1 && Vector3.Magnitude(m_Children[m_NowTargetIndex].transform.position - transform.position) <= 0.3)
+         {
+             if (m_NowTargetIndex == m_Children.Length - 1)
+             {
+                 Destroy(gameObject);
+             }
+             else
+             {
+                 m_NowTargetIndex++;
+             }
+
+             if (m_NowTargetIndex <= m_Children.Length - 1)
+             {
+                 m_Direction = (m_Children[m_NowTargetIndex].transform.position - transform.position).normalized;
+             }
+         }
     }
 
     private Coroutine AttackedCoroutine;
