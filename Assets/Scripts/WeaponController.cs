@@ -13,9 +13,8 @@ public class WeaponController : MonoBehaviour
     
     public Weapon item;
     public Transform point;
-    public float powerMulti;
     public Vector3 velocity;//46
-    float time;
+    //float time;
     public bool debug;
     public enum HandState
     {
@@ -72,14 +71,18 @@ public class WeaponController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             m_HandState = HandState.DownHand;
-            // m_Strength = Time.time - m_Strength;
+            m_Strength = Time.time - m_Strength;
+            if (m_Strength >= 2.0f)
+            {
+                m_Strength = 2.0f;
+            }
             // m_UsingWeapon.Attack(m_Strength, gameObject.transform.forward);
             // m_UsingWeapon = null;
-            velocity = transform.forward * powerMulti;
+            velocity = transform.forward * m_Strength * 25;
             m_UsingWeapon.m_Velocity = velocity;
             m_UsingWeapon.m_Active = true;
             velocity = Vector3.zero;
-            time = 0;
+            //time = 0;
             if (debug)
             {
                 Debug.Break();

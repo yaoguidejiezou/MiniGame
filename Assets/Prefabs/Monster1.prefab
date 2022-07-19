@@ -112,8 +112,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Health: 20
   m_Speed: 0.02
+  m_MonsterPower: 1
   m_Path: {fileID: 0}
   m_Children: []
+  m_HouseManager: {fileID: 0}
+  m_State: 0
 --- !u!54 &6318811955311907242
 Rigidbody:
   m_ObjectHideFlags: 0

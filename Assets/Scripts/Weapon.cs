@@ -10,30 +10,20 @@ public class Weapon : MonoBehaviour
     public Vector3 m_Gravity = Physics.gravity;
     public bool m_Active;
     public GameObject m_Effect;
- 
+    public int m_Power;
+
     private Vector3 current_pos;//当前位置
     private Vector3 m_Start;
     private float i = 1f;
- 
     //额外视觉效果 使模型可以旋转
-    public float rotateSpeed = 600f; 
     public Transform model;
-    Vector3 defaultRotate;
     void Start()
     {
         m_Start = transform.position;
         current_pos = m_Start;
-        if (model) defaultRotate = model.eulerAngles;
+        m_Power = 10;
     } 
- 
- 
-    private void Update()
-    {
-        if (m_Active)
-        { 
-            //model.Rotate(Vector3.right * rotateSpeed * Time.deltaTime, Space.Self);//在空中旋转
-        }
-    }
+    
     private void FixedUpdate()
     {
         CalculateThrownMove(Time.fixedDeltaTime);
@@ -94,8 +84,8 @@ public class Weapon : MonoBehaviour
             seconds++;
             if (InAttackRangeMonster != null)
             {
-                Debug.Log(InAttackRangeMonster.name + "在" + seconds + "秒" + "受到攻击");
-                InAttackRangeMonster.GetComponent<MonsterController>().Hurt();
+                //Debug.Log(InAttackRangeMonster.name + "在" + seconds + "秒" + "受到攻击");
+                InAttackRangeMonster.GetComponent<MonsterController>().Hurt(m_Power);
             }
             
             if (seconds >= 3)

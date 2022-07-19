@@ -28,7 +28,7 @@ public class MonsterSpawner : MonoBehaviour
             m_LastSpawnTime = Time.time;
             if (m_NowMonsterIndex > m_MonsterList.Count - 1)
             {
-                gameObject.SetActive(false);
+                gameObject.GetComponent<MonsterSpawner>().enabled = false;
             }
         }
     }
