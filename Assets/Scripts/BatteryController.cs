@@ -12,6 +12,7 @@ public class BatteryController : MonoBehaviour
     public Transform m_FinalPoint;
     public float m_AttackTimeInterval;
     public float m_TurnSpeed;
+    public int m_Cost;
     
     public List<GameObject> m_Monsters = new List <GameObject>();
 

@@ -72,31 +72,35 @@ public class MonsterController : MonoBehaviour
     {
         m_State = MonsterState.Hurt;
         AttackedCoroutine = StartCoroutine(Attacked(power));
-        if (m_Health <= 0)
-        {
-            m_State = MonsterState.Die;
-            DiedCoroutine = StartCoroutine(Died());
-        }
+
     }
     
     IEnumerator Attacked(int lossHealth)
     {
         //Debug.Log(m_Health);
-        GetComponent<MeshRenderer>().material.color = Color.red;
-        m_Health -= lossHealth;
-        for (float timer = 0; timer < 0.5; timer += Time.deltaTime)
+        if (m_State == MonsterState.Hurt)
         {
-            yield return 0;
+            GetComponent<MeshRenderer>().material.color = Color.red;
+            m_Health -= lossHealth;
+            if (m_Health <= 0)
+            {
+                m_State = MonsterState.Die;
+                DiedCoroutine = StartCoroutine(Died());
+                yield break;
+            }
+            for (float timer = 0; timer < 0.5; timer += Time.deltaTime)
+            {
+                yield return 0;
+            }
+            GetComponent<MeshRenderer>().material.color = Color.green;
+            StopCoroutine(AttackedCoroutine);
         }
-        GetComponent<MeshRenderer>().material.color = Color.green;
-        StopCoroutine(AttackedCoroutine);
-        
     }
     
     IEnumerator Died()
     {
+        GetComponent<MeshRenderer>().material.color = Color.red;
         GetComponent<Rigidbody>().isKinematic = false;
-        GetComponent<MeshRenderer>().material.color = Color.green;
         m_Direction = new Vector3(0, 0, 0);
         for (float timer = 0; timer < 3; timer += Time.deltaTime)
         {
