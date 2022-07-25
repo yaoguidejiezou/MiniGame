@@ -23,40 +23,39 @@ public class BatterySlotCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_Camera.GetComponent<CameraController>().m_Following == false)
-        {
-            
-            Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
+        
 
-            
-             //没有选择一个塔基或者重新点击鼠标时
-             if (!selceting || Input.GetMouseButtonDown(0))
-             {
-                 if (EventSystem.current.IsPointerOverGameObject()) //鼠标放到UI上
-                 {
-                     //do Nothing
-                 }
-                 else if (Physics.Raycast(ray, out hitInfo, 1000, m_BatteryLayerMask, new QueryTriggerInteraction())) //射线检测到塔基对象
-                 {
-                     //Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
-                     //Debug.Log(hitInfo.collider.name);
-                     m_BatteryManager.TargetTowerBase = hitInfo.collider.gameObject;
-                     if (Input.GetMouseButton(0))
-                     {
-                         ShowPanel();
-                         
-                     }
-                 }
-                 else
-                 {
-                     //towerManager.TargetTowerBase = null;
-            
-                     UnshowPanel();
-                 }
-             }
-            
+        
+        Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+
+        
+        //没有选择一个塔基或者重新点击鼠标时
+        if (!selceting || Input.GetMouseButtonDown(0))
+        {
+            if (EventSystem.current.IsPointerOverGameObject()) //鼠标放到UI上
+            {
+                //do Nothing
+            }
+            else if (Physics.Raycast(ray, out hitInfo, 1000, m_BatteryLayerMask, new QueryTriggerInteraction())) //射线检测到塔基对象
+            {
+                //Debug.DrawLine(ray.origin, hitInfo.point, Color.blue);
+                //Debug.Log(hitInfo.collider.name);
+                m_BatteryManager.TargetTowerBase = hitInfo.collider.gameObject;
+                if (Input.GetMouseButton(0))
+                {
+                    ShowPanel();
+                    
+                }
+            }
+            else
+            {
+                //towerManager.TargetTowerBase = null;
+        
+                UnshowPanel();
+            }
         }
+             
 
     }
     

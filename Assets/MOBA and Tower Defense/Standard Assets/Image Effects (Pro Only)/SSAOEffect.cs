@@ -36,6 +36,8 @@ public class SSAOEffect : MonoBehaviour
 	public Texture2D m_RandomTexture;
 	
 	private bool m_Supported;
+	
+	public bool OnlyShowAO = false;
 
 	private static Material CreateMaterial (Shader shader)
 	{
@@ -156,10 +158,16 @@ public class SSAOEffect : MonoBehaviour
 			rtAO = rtBlurY; // AO is the blurred one now
 		}
 
-		// Modulate scene rendering with SSAO
-		m_SSAOMaterial.SetTexture ("_SSAO", rtAO);
-		Graphics.Blit (source, destination, m_SSAOMaterial, 4);
-
+		if (OnlyShowAO)
+		{
+			Graphics.Blit (rtAO, destination, m_SSAOMaterial, 4);
+		}
+		else
+		{
+			// Modulate scene rendering with SSAO
+			m_SSAOMaterial.SetTexture ("_SSAO", rtAO);
+			Graphics.Blit (source, destination, m_SSAOMaterial, 4);
+		}
 		RenderTexture.ReleaseTemporary (rtAO);
 	}
 	

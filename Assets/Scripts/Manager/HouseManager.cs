@@ -9,7 +9,7 @@ public class HouseManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        m_Health = 300;
+        //m_Health = 300;
     }
 
     // Update is called once per frame

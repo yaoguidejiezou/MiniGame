@@ -44,29 +44,28 @@ public class CameraController : MonoBehaviour
         //     transform.rotation = m_UpToDownPoint.transform.rotation;
         // }
         var translation = GetInputTranslationDirection() * Time.deltaTime * m_Speed;
-        gameObject.transform.Translate(translation);
+        gameObject.transform.Translate(translation, Space.World);
     }
     
     
     Vector3 GetInputTranslationDirection()
     {
         Vector3 direction = Vector3.zero;
-
         if (Input.GetKey(KeyCode.W))
         {
-            direction += new Vector3(Vector3.forward.x, 0, Vector3.forward.z);
+            direction -= Vector3.forward;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            direction += new Vector3(Vector3.back.x, 0, Vector3.back.z);
+            direction -= Vector3.back;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            direction += Vector3.left;
+            direction -= Vector3.left;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            direction += Vector3.right;
+            direction -= Vector3.right;
         }
         if (Input.GetKey(KeyCode.Q))
         {
@@ -76,6 +75,8 @@ public class CameraController : MonoBehaviour
         {
             direction += Vector3.up;
         }
+
+        //Debug.Log(direction.normalized);
         return direction.normalized;
     }
 }

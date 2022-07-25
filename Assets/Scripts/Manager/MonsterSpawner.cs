@@ -7,12 +7,12 @@ public class MonsterSpawner : MonoBehaviour
     public List<MonsterSpawnUnit> m_MonsterList;
     private float m_LastSpawnTime;
     private int m_NowMonsterIndex;
-    public Transform m_SpawnPoint;
+    public GameObject[] m_SpawnPoints;
     // Start is called before the first frame update
     void Start()
     {
         m_LastSpawnTime = 0;
-        m_NowMonsterIndex = 0;
+        m_SpawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
     }
     
 
@@ -22,8 +22,8 @@ public class MonsterSpawner : MonoBehaviour
         if (Time.time - m_LastSpawnTime >= m_MonsterList[m_NowMonsterIndex].m_SpawnTimeInterval)
         {
             //生成
-            var m_NewMonster = Instantiate(m_MonsterList[m_NowMonsterIndex].m_Monster, m_SpawnPoint.position, m_SpawnPoint.rotation);
-            m_NewMonster.m_Path = m_MonsterList[m_NowMonsterIndex].m_MonsterPath;
+            var r = Random.Range(0, 2);
+            var m_NewMonster = Instantiate(m_MonsterList[m_NowMonsterIndex].m_Monster, m_SpawnPoints[r].transform.position, m_SpawnPoints[r].transform.rotation);
             m_NowMonsterIndex++;
             m_LastSpawnTime = Time.time;
             if (m_NowMonsterIndex > m_MonsterList.Count - 1)
